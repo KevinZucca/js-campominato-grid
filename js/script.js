@@ -26,9 +26,6 @@ playButtonEl.addEventListener("click", function(){
 
 
 
-
-
-
 /**
  * Funzione che genera il gioco
  * @param {gameContainer} 
@@ -37,18 +34,24 @@ playButtonEl.addEventListener("click", function(){
  */
 function generateGame (gameContainer, box) {
     
-    
     for(let i = 1; i <= 100; i++) {
         gameContainer = document.getElementById("game-container");
         gameContainer.classList.add("game-container")
 
-        box = document.createElement("div");
+        let box = document.createElement("div");
         box.classList.add("box");
         gameContainer.append(box);
         
-        let cellNumber = i;
-        box.innerText = cellNumber;
+        const cellNumber = i;
+        box.innerText = cellNumber;  
 
+        box.addEventListener("click", function(){
+            box.style.backgroundColor = "#7fffd4";
+            console.log("Il numero di questa casella è: " + box.innerText )
+         });
     }
-    return gameContainer;
+
+    return gameContainer
 }
+
+
